@@ -1,0 +1,6 @@
+<tr th:each="omxServerItems : ${omxServerItems}">
+	<td>Server</td>
+	<td th:text="${omxServerItems.name}"></td>
+	<td th:text="${omxServerItems.state}"></td>
+	<td th:text="${omxServerItems.health}"></td>
+</tr>

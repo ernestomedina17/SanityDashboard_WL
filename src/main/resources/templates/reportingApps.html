@@ -1,0 +1,16 @@
+<tr th:each="reportingAppsItems : ${reportingAppsItems}">
+	<td>Deployment</td>
+	<td th:text="${reportingAppsItems.name}"></td>
+	<td th:text="${reportingAppsItems.state}"></td>
+	<td th:text="${reportingAppsItems.health}"></td>
+</tr>
+<tr >
+ <td> Total Items at Wldeploy </td>
+ <td th:text="${reportingContador}"></td>
+ <td> Total Items at Base Wldeploy</td>
+ <td th:text="${reportingwldeploy}"></td>
+</tr>
+
+<tr>
+	<td th:text="${reportingappDiff}"></td>
+</tr>

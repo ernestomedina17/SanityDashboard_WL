@@ -1,0 +1,8 @@
+https://aod.web.att.com/cgi-bin/viewvc.cgi/athena/OCX-Interfaces/branches/R1804/buildutils/bin/wldeploy.xml
+https://aod.web.att.com/cgi-bin/viewvc.cgi/athena/OMX/branches/R1804/buildutils/bin/wldeploy.xml
+https://aod.web.att.com/cgi-bin/viewvc.cgi/athena/camo/branches/R1804/buildutils/bin/wldeploy.xml
+https://aod.web.att.com/cgi-bin/viewvc.cgi/athena/digitalnotifications/branches/R1804/buildutils/bin/wldeploy.xml
+https://aod.web.att.com/cgi-bin/viewvc.cgi/athena/reporting/branches/R1804/buildutils/bin/wldeploy.xml
+https://aod.web.att.com/cgi-bin/viewvc.cgi/athena/tnmgt/branches/R1804/buildutils/bin/wldeploy.xml
+https://aod.web.att.com/cgi-bin/viewvc.cgi/athena/tnplatform/branches/R1804/buildutils/bin/wldeploy.xml
+https://aod.web.att.com/cgi-bin/viewvc.cgi/athena/workermgt/branches/R1804/buildutils/bin/wldeploy.xml

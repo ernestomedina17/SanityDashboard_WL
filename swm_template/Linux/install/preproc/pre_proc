@@ -1,0 +1,10 @@
+#!/bin/sh
+
+DATE=`date +"%Y_%m_%d_%T"`
+mkdir -p ~/sanity/
+PID=`ps -fe | grep  OMXSanityDashBoard | grep -v grep | awk '{ print $2 }'`
+echo "Killing PID: $PID"
+kill -s 9 $PID || kill -9 $PID
+rm -v ~/sanity/*
+echo "Date:$DATE App:$App JAR:$JAR URL:$URL VTIER:$VTIER" > ~/sanity/Install_"$DATE".log
+echo "Old App has been killed and removed " >> ~/sanity/Install_"$DATE".log

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="wldeploy" basedir=".." default="usage">
+    <property environment="env"/>
+    <property name="ear.version" value="${env.ARTIFACTS_VERSION}"/>
+    <property name="avos.version" value="9.2.1"/>
+    <target name="deployAll" depends="KeepAlive4ServiesWar,ReportingServiceEar"/>
+    <target name="usage" description="default - display a list of targets">
+        <echo>Allowed targets: deployAll | deploy</echo>
+    </target>
+
+    <target name="KeepAlive4ServiesWar">
+        <antcall target="deploy">
+            <param name="appName" value="KeepAlive4ServiesWar"/>
+            <param name="ear.filename" value="${env.APP_HOME}/artifacts/wars/keepalive-war-1.0.war"/>
+            <param name="target" value="ReportingServicesCluster"/>
+        </antcall>
+    </target>
+	 <target name="ReportingServiceEar">
+        <antcall target="deploy">
+            <param name="appName" value="ReportingServiceEar"/>
+            <param name="ear.filename"
+                   value="${env.APP_HOME}/artifacts/ears/reportingservice-ear-${ear.version}.ear"/>
+            <param name="target" value="ReportingServicesCluster"/>
+        </antcall>
+    </target>
+
+    <target name="deploy">
+        <echo message="deploying appName=${appName} from file=${ear.filename}"/>
+        <wldeploy action="deploy" verbose="true" debug="true" name="${appName}" source="${ear.filename}"
+                  user="${env.WL_USER}" password="${env.WL_PWD}" adminurl="${env.WL_ADMIN_SVR_URL}"
+                  targets="${target}"/>
+    </target>
+</project>

@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="wldeploy" basedir=".." default="usage">
+   <property environment="env"/>
+   <property name="ear.version" value="${env.ARTIFACTS_VERSION}"/>
+   <property name="guiear.version" value="${env.ARTIFACTS_VERSION}"/>
+   <property name="war.version" value="${env.ARTIFACTS_VERSION}"/>
+   <property name="avos.version" value="9.2.1"/>
+   <target name="deployAll" depends="jms-xa-adp,PermissionInterfaceEar,OrderHistoryEar,DnInterfaceEar,GTAdapterInterfaceEar,OcxInterfaceEar,OmxEnterpriseInterfaceEar,NxEnterpriseInterfaceEar,GcpInterfaceEar,AffInterfaceEar,InetSoftInterfaceEar,NxNotifyInterfaceEar,NtCommonConsumerEar,GuiNewtonEar,GuiNewtonLogWar,SdnControllerInterfaceEar,avos_engine,CthAdapterEar,CthEar,ActivationInterfaceEar,CommentsInterfaceEar,DesignInterfaceEar,InstarInterfaceEar,BgwInterfaceEar,BbgwInterfaceEar,OmxuiEar,RomeInterfaceEar,AffiVisibilityInterfaceEar,TnmgmtInterfaceEar, DocumenthandlingEar,BsomInterfaceEar,UsrpInterfaceEar,EnterpriseOrderDataInterfaceEar,TnPortingInterfaceEar,SchedulerInterfaceEar,OsmInterfaceEar,MRInterfaceEar,EFMSInterfaceEar,IPDBInterfaceEar,CanopiInterfaceEar,CommonUtilityEar,PedInterfaceEar,EdgeInterfaceEar,DateCalcInterfaceEar,GetOrderDataRouterEar,OTPInterfaceEAR,CamoInterfaceEar,SsppInterfaceEar,LeoInterfaceEar,ClarifyInterfaceEar,BrassInterfaceEar,WmxInterfaceEar,BmpInterfaceEar,MilestonesInterfaceEar,EdfInterfaceEar,OmxCommonStatusInterfaceEar,EsignInterfaceEar,GpsInterfaceEar,DmaapifEar,CcdifEar,OutageManagerEar,KeepAlive4ServiesWar"/>
+   <target name="usage" description="default - display a list of targets">
+      <echo>Allowed targets: deployAll | deploy</echo>
+   </target>
+   <target name="KeepAlive4ServiesWar">
+      <antcall target="deploy">
+         <param name="appName" value="KeepAlive4ServiesWar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/wars/keepalive-war-1.0.war"/>
+         <param name="target" value="NewtonServicesCluster,NewtonActivevosCluster,NewtonCommonServicesCluster"/>
+      </antcall>
+	</target>
+   <target name="OmxCommonStatusInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="OmxCommonStatusInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/omxcommonstatus-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonCommonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="CamoInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="CamoInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/camo-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonCommonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="SsppInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="SsppInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/sspp-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonCommonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="OrderHistoryEar">
+      <antcall target="deploy">
+         <param name="appName" value="OrderHistoryEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/orderhistory-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="UsrpInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="UsrpInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/usrp-interface-ear-${ear.version}.ear" />
+			<param name="target" value="NewtonServicesCluster" />
+		</antcall>
+	</target>
+	<target name="EnterpriseOrderDataInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="EnterpriseOrderDataInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/enterpriseorderdata-interface-ear-${ear.version}.ear" />
+			<param name="target" value="NewtonCommonServicesCluster" />
+		</antcall>
+	</target>
+   <target name="BsomInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="BsomInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/bsom-interface-ear-${ear.version}.ear" />
+			<param name="target" value="NewtonServicesCluster" />
+		</antcall>
+	</target>
+   <target name="BgwInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="BgwInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/bgw-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="BbgwInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="BbgwInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/bbgw-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="RomeInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="RomeInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/rome-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="CommonUtilityEar">
+      <antcall target="deploy">
+		 <param name="appName" value="CommonUtilityEar" />
+		 <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/common-utility-interface-ear-${ear.version}.ear" />
+		 <param name="target" value="NewtonServicesCluster" />
+	   </antcall>
+   </target>   
+   <target name="PermissionInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="PermissionInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/pminterface-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="GTAdapterInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="GTAdapterInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/gtadapter-interface-ear.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="OcxInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="OcxInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/ocx-interface-ear.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="DnInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="DnInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/dninterface-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="DesignInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="DesignInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/design-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonCommonServicesCluster"/>
+      </antcall>
+   </target>
+    <target name="InstarInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="InstarInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/instar-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonCommonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="ActivationInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="ActivationInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/activation-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonCommonServicesCluster"/>
+      </antcall>
+   </target>
+    <target name="CommentsInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="CommentsInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/commenthistory-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonCommonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="SdnControllerInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="SdnControllerInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/sdncontroller-interface.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="OmxEnterpriseInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="OmxEnterpriseInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/omxenterprise-interface-ear.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="NxEnterpriseInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="NxEnterpriseInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/nxenterprise-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="GcpInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="GcpInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/gcp-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="GuiNewtonEar">
+      <antcall target="deploy">
+         <param name="appName" value="GuiNewtonEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/gui-newton-ear-${guiear.version}.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="GuiNewtonLogWar">
+      <antcall target="deploy">
+          <param name="appName" value="GuiNewtonLogWar"/>
+          <param name="ear.filename" value="${env.APP_HOME}/artifacts/wars/gui-newton-log-war-${guiear.version}.war"/>
+          <param name="target" value="NewtonServicesCluster"/> 
+       </antcall>
+   </target>
+   <target name="AffInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="AffInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/aff-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="InetSoftInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="InetSoftInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/inetsoft-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="NxNotifyInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="NxNotifyInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/nxnotify-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="NtCommonConsumerEar">
+      <antcall target="deploy">
+         <param name="appName" value="NtCommonConsumerEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/nt-common-consumer-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="CthEar">
+      <antcall target="deploy">
+         <param name="appName" value="CthEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/cth-interface-ear.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target> 
+   <target name="DocumenthandlingEar">
+      <antcall target="deploy">
+         <param name="appName" value="DocumenthandlingEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/documenthandling-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target> 
+   <target name="CthAdapterEar">
+      <antcall target="deploy">
+         <param name="appName" value="CthAdapterEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/cthadapter-interface-ear.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="OmxuiEar">
+      <antcall target="deploy">
+         <param name="appName" value="OmxuiEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/omxui-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target> 
+   <target name="AffiVisibilityInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="AffiVisibilityInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/affi-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="TnmgmtInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="TnmgmtInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/tnmgmt-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="TnPortingInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="TnPortingInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/tnporting-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="SchedulerInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="SchedulerInterfaceEar" />
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/scheduler-interface-ear-${ear.version}.ear" />
+         <param name="target" value="NewtonServicesCluster" />
+      </antcall>
+   </target>
+   <target name="OsmInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="OsmInterfaceEar" />
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/osm-interface-ear-${ear.version}.ear" />
+         <param name="target" value="NewtonCommonServicesCluster"/>
+      </antcall>
+   </target>
+    <target name="MRInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="MRInterfaceEar" />
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/messagerouter-interface-ear-${ear.version}.ear" />
+         <param name="target" value="NewtonCommonServicesCluster" />
+      </antcall>
+   </target>
+   <target name="EFMSInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="EFMSInterfaceEar" />
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/efms-interface-ear-${ear.version}.ear" />
+         <param name="target" value="NewtonCommonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="GetOrderDataRouterEar">
+      <antcall target="deploy">
+         <param name="appName" value="GetOrderDataRouterEar" />
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/getOrderDataTestingRouter-ear-${ear.version}.ear" />
+         <param name="target" value="NewtonCommonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="IPDBInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="IPDBInterfaceEar" />
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/ipdb-interface-ear-${ear.version}.ear" />
+         <param name="target" value="NewtonCommonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="CanopiInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="CanopiInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/canopi-interface-ear-${ear.version}.ear" />
+			<param name="target" value="NewtonServicesCluster" />
+		</antcall>
+	</target>
+    <target name="PedInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="PedInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/ped-interface-ear-${ear.version}.ear" />
+			<param name="target" value="NewtonServicesCluster" />
+		</antcall>
+	</target>
+	<target name="EdgeInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="EdgeInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/edge-interface-ear-${ear.version}.ear" />
+			<param name="target" value="NewtonServicesCluster" />
+		</antcall>
+	</target>	
+	<target name="DateCalcInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="DateCalcInterfaceEar" />
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/datecalc-interface-ear-${ear.version}.ear" />
+         <param name="target" value="NewtonCommonServicesCluster" />
+      </antcall>
+   </target>
+  <target name="OTPInterfaceEAR">
+      <antcall target="deploy">
+         <param name="appName" value="OTPInterfaceEAR" />
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/ordertransport-interface-ear-${ear.version}.ear" />
+         <param name="target" value="NewtonCommonServicesCluster" />
+      </antcall>
+   </target>
+    <target name="LeoInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="LeoInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/leo-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonCommonServicesCluster"/>
+      </antcall>
+   </target>
+     <target name="ClarifyInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="ClarifyInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/clarify-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonCommonServicesCluster"/>
+      </antcall>
+   </target>
+    <target name="BrassInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="BrassInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/brass-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonCommonServicesCluster"/>
+      </antcall>
+   </target>
+    <target name="WmxInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="WmxInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/wmx-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonCommonServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="BmpInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="BmpInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/bmp-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="NewtonCommonServicesCluster"/>
+      </antcall>
+   </target>
+	<target name="MilestonesInterfaceEar">
+			<antcall target="deploy">
+				<param name="appName" value="MilestonesInterfaceEar" />
+				<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/milestones-interface-ear-${ear.version}.ear" />
+				<param name="target" value="NewtonCommonServicesCluster" />
+			</antcall>
+	</target>
+	<target name="EdfInterfaceEar">
+					<antcall target="deploy">
+						<param name="appName" value="EdfInterfaceEar" />
+						<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/edf-interface-ear-${ear.version}.ear" />
+						<param name="target" value="NewtonCommonServicesCluster" />
+					</antcall>
+	</target>
+	<target name="EsignInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="EsignInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/esign-interface-ear-${ear.version}.ear" />
+			<param name="target" value="NewtonCommonServicesCluster" />
+		</antcall>
+	</target>
+	<target name="GpsInterfaceEar">
+					<antcall target="deploy">
+						<param name="appName" value="GpsInterfaceEar" />
+						<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/gps-interface-ear-${ear.version}.ear" />
+						<param name="target" value="NewtonCommonServicesCluster" />
+					</antcall>
+	</target>
+	<target name="OutageManagerEar">
+		<antcall target="deploy">
+			<param name="appName" value="OutageManagerEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/outagemanager-interface-ear.ear" />
+			<param name="target" value="NewtonServicesCluster" />
+		</antcall>
+	</target>
+   <target name="DmaapifEar">
+      <antcall target="deploy">
+         <param name="appName" value="DmaapifEar" />
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/dmaapif-interface-ear-${ear.version}.ear" />
+         <param name="target" value="NewtonServicesCluster" />
+      </antcall>
+   </target>
+   <target name="CcdifEar">
+      <antcall target="deploy">
+         <param name="appName" value="CcdifEar" />
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/ccdif-interface-ear-${ear.version}.ear" />
+         <param name="target" value="NewtonServicesCluster" />
+      </antcall>
+   </target>
+	<target name="avos_engine">
+      <antcall target="deploy">
+         <param name="appName" value="ActiveVOS Server"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/ave_weblogic-${avos.version}.ear"/>
+         <param name="target" value="NewtonActivevosCluster"/>
+      </antcall>
+   </target>
+   <target name="jms-xa-adp">
+      <antcall target="deploy">
+         <param name="appName" value="jms-xa-adp" />
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/jars/jms-xa-adp-1211.rar" />
+         <param name="target" value="NewtonActivevosCluster,NewtonServicesCluster,NewtonCommonServicesCluster" />
+      </antcall>
+   </target>
+   <target name="deploy">
+      <echo message="deploying appName=${appName} from file=${ear.filename}"/>
+      <wldeploy action="deploy" verbose="true" debug="true" name="${appName}" source="${ear.filename}" user="${env.WL_USER}" password="${env.WL_PWD}" adminurl="${env.WL_ADMIN_SVR_URL}" targets="${target}"/>
+   </target>
+</project>

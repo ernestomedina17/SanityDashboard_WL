@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="wldeploy" basedir=".." default="usage">
+	<property environment="env" />
+	<property name="ear.version" value="${env.ARTIFACTS_VERSION}" />
+	<property name="avos.version" value="9.2.1" />
+	<taskdef name="wldeploy" classname="weblogic.ant.taskdefs.management.WLDeploy" />
+	<target name="deployAll" depends="KeepAlive4ServiesWar,LogAggregationEar,TnPlatformuiInterfaceEar,AsocInterfaceEar,OmsInterfaceEar,SppifInterfaceEar,BgwifInterfaceEar,CsinmInterfaceEar,LsrvInterfaceEar,TnomInterfaceEar,TnplatformcommonServicesEar,GcpcsiInterfaceEar,GiomInterfaceEar,CthInterfaceEar,FirstInterfaceEar,IodInterfaceEar,LergInterfaceEar,LnpSoaInterfaceEar,LnpToolInterfaceEar,LomtInterfaceEar,PortingDomainAdapterEar,PortingLsrvInterfaceEar,PortingServicesEar,EdfifInterfaceEar" />
+	<target name="usage" description="default - display a list of targets">
+		<echo>Allowed targets: deployAll | deploy</echo>
+	</target>
+	<target name="KeepAlive4ServiesWar">
+      <antcall target="deploy">
+         <param name="appName" value="KeepAlive4ServiesWar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/wars/keepalive-war-1.0.war"/>
+         <param name="target" value="TnPlatformServicesCluster"/>
+      </antcall>
+	</target>
+	<target name="LogAggregationEar">
+		<antcall target="deploy">
+			<param name="appName" value="LogAggregation" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/common-log-aggregation-ear-2.0-SNAPSHOT.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="TnPlatformuiInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="TnPlatformuiInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/tnplatformui-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="AsocInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="AsocInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/asocif-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="OmsInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="OmsInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/omsif-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="SppifInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="SppifInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/sppif-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="BgwifInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="BgwifInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/bgwif-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="CsinmInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="CsinmInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/csinmif-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="LsrvInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="LsrvInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/lsrvif-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="TnomInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="TnomInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/tnomservices-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="GiomInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="GiomInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/giomif-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="GcpcsiInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="GcpcsiInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/gcpcsiif-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="CthInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="CthInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/cthif-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="TnplatformcommonServicesEar">
+		<antcall target="deploy">
+			<param name="appName" value="TnplatformcommonServicesEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/tnplatform-common-services-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="TnCthInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="TnCthInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/cthinterface-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="GcpInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="GcpInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/gcpinterface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="R3InterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="R3InterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/r3-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="TnServicesEar">
+		<antcall target="deploy">
+			<param name="appName" value="TnServicesEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/tnservices-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="TnDomainAdapterEar">
+		<antcall target="deploy">
+			<param name="appName" value="TnDomainAdapterEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/tndomainadapter-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="FirstInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="FirstInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/firstif-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="IodInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="IodInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/iodif-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="LergInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="LergInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/lergif-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="LnpSoaInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="LnpSoaInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/lnpsoaif-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="LnpToolInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="LnpToolInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/lnptoolif-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="LomtInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="LomtInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/lomtif-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="PortingDomainAdapterEar">
+		<antcall target="deploy">
+			<param name="appName" value="PortingDomainAdapterEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/porting-domainadapter-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="PortingLsrvInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="PortingLsrvInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/porting-lsrv-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="PortingServicesEar">
+		<antcall target="deploy">
+			<param name="appName" value="PortingServicesEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/porting-svclayer-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="EdfifInterfaceEar">
+		<antcall target="deploy">
+			<param name="appName" value="EdfifInterfaceEar" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/edfif-interface-ear-${ear.version}.ear" />
+			<param name="target" value="TnPlatformServicesCluster" />
+		</antcall>
+	</target>
+	<target name="deploy">
+		<echo message="deploying appName=${appName} from file=${ear.filename}" />
+		<wldeploy action="deploy" verbose="true" debug="true" name="${appName}" source="${ear.filename}" user="${env.WL_USER}" password="${env.WL_PWD}" adminurl="${env.WL_ADMIN_SVR_URL}" targets="${target}" />
+	</target>
+</project>
+

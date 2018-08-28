@@ -1,0 +1,16 @@
+<tr th:each="omxAppsItems : ${omxAppsItems}">
+	<td>Deployment</td>
+	<td th:text="${omxAppsItems.name}"></td>
+	<td th:text="${omxAppsItems.state}"></td>
+	<td th:text="${omxAppsItems.health}"></td>
+</tr>
+<tr >
+ <td> Total Items at Wldeploy </td>
+ <td th:text="${omxContador}"></td>
+ <td> Total Items at Base Wldeploy</td>
+ <td th:text="${omxwldeploy}"></td>
+</tr>
+
+<tr>
+	<td th:text="${omxappDiff}"></td>
+</tr>

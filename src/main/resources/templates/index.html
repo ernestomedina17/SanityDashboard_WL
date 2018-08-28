@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>OMX Sanity DashBoard</title>
+<link rel="stylesheet" href="css/normalize.min.css"></link>
+<link rel="stylesheet" href="css/style.css"></link>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/getMappings.js"></script>
+</head>
+<body>
+	<div class="left-menu">
+		<div class="logo">
+			<i class="fa fa-align-justify"></i>
+			<div>OMX Sanity DashBoard</div>
+		</div>
+		<div class="accordion">
+			<div class="section">
+				<input type="radio" name="accordion-1" id="section-1"
+					checked="checked" /> <label for="section-1"><span>DEV</span></label>
+				<div class="content">
+					<ul>
+						<li><i class="fa fa-play"></i> <span onclick="dashboard('dev2')">Dev2</span>
+						</li>
+						<li><i class="fa fa-play"></i> <span onclick="dashboard('dev3')">Dev3</span>
+						</li>
+						<li><i class="fa fa-play"></i> <span onclick="dashboard('dev6')">Dev6</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="section">
+				<input type="radio" name="accordion-1" id="section-2"
+					checked="checked" /> <label for="section-2"><span>IT</span></label>
+				<div class="content">
+					<ul>
+<!-- 						<li><i class="fa fa-play"></i><span id=me -->
+<!-- 							onclick="document.getElementById('demo').innerHTML = Date()">IT1</span> -->
+<!-- 						</li> -->
+<!-- 						<li><i class="fa fa-play"></i><span id=me -->
+<!-- 							onclick="document.getElementById('demo').innerHTML = Date()">IT2</span> -->
+<!-- 						</li> -->
+						<li><i class="fa fa-play"></i><span onclick="dashboard('it3')">IT3</span>
+						</li>
+						<li><i class="fa fa-play"></i><span onclick="dashboard('it5')">IT5</span>
+						</li>
+<!-- 						<li><i class="fa fa-play"></i><span id=me -->
+<!-- 							onclick="document.getElementById('demo').innerHTML = Date()">IT4</span> -->
+<!-- 						</li> -->
+<!-- 						<li><i class="fa fa-play"></i><span id=me -->
+<!-- 							onclick="document.getElementById('demo').innerHTML = Date()">IT5</span> -->
+<!-- 						</li> -->
+<!-- 						<li><i class="fa fa-play"></i><span id=me -->
+<!-- 							onclick="document.getElementById('demo').innerHTML = Date()">IT6</span> -->
+<!-- 						</li> -->
+					</ul>
+				</div>
+			</div>
+			<div class="section">
+				<input type="radio" name="accordion-1" id="section-4"
+					checked="checked" /> <label for="section-4"> <span>UAT/E2E</span></label>
+				<div class="content">
+					<ul>
+						<li><i class="fa fa-play"></i><span onclick="dashboard('sit1')">SIT1</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="section">
+				<input type="radio" name="accordion-1" id="section-5"
+					checked="checked" /> <label for="section-5"> <span>IST</span></label>
+				<div class="content">
+					<ul>
+<!-- 						<li><i class="fa fa-play"></i><span id=me -->
+<!-- 							onclick="document.getElementById('demo').innerHTML = Date()">ST1</span> -->
+<!-- 						</li> -->
+						<li><i class="fa fa-play"></i><span onclick="dashboard('st2')">ST2</span>
+						</li>
+<!-- 						<li><i class="fa fa-play"></i><span id=me -->
+<!-- 							onclick="document.getElementById('demo').innerHTML = Date()">ST3</span> -->
+<!-- 						</li> -->
+						<li><i class="fa fa-play"></i><span onclick="dashboard('st3')">ST3</span>
+						</li>
+						<li><i class="fa fa-play"></i><span onclick="dashboard('st4')">ST4</span>
+						</li>
+						<li><i class="fa fa-play"></i><span onclick="dashboard('st5')">ST5</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="section">
+				<input type="radio" name="accordion-1" id="section-6"
+					checked="checked" /> <label for="section-6"> <span>SCM/Infra</span></label>
+				<div class="content">
+					<ul>
+						<li><i class="fa fa-play"></i><span onclick="getMappings()">REST List</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--  Right side -->
+	<div class="right-side">
+		<div id="template"></div>
+	</div>
+</body>
+</html>

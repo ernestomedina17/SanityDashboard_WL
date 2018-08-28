@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<descriptor version="1" xmlns="http://aft.att.com/swm/descriptor">
+	<platforms>
+		<platform os="Linux" osVersions="*" architecture="*"/>
+	</platforms>
+	<paths>
+		<path name="/sanity" type="d" user="VTIER" group="VTIER" permissions="775" recursive="true"/>
+		<path name="/sanity/OMXSanityDashBoard-1.0.0-RELEASE.war" type="f" user="VTIER" group="VTIER" permissions="775" recursive="false"></path>
+		<path name="/sanity/start.sh" type="f" user="VTIER" group="VTIER" permissions="775" recursive="false"/><path
+			name="/sanity/stop.sh" type="f" user="VTIER" group="VTIER" permissions="775" recursive="false">
+</path>
+	</paths>
+	<actions>
+		<action type="INST">
+			<proc stage="POST" user="VTIER" group="VTIER"/>
+			<proc stage="PRE" user="VTIER" group="VTIER"/>
+		</action>
+		<action type="DINIT">
+			<proc stage="POST" user="VTIER" group="VTIER"/>
+		</action>
+	</actions>
+	<dependencies>
+	</dependencies>
+	<variableDescriptions>
+   		<variableDescription key="VTIER" description="VTIER User ID and Group are the same" required="true">
+   		</variableDescription>
+	</variableDescriptions>
+</descriptor>

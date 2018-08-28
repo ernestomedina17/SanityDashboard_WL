@@ -1,0 +1,9 @@
+<div class="dashboardtitle">List of OMX Sanity WebLogic REST
+	Services available from Non Prod Environments on R1710</div>
+<div class="dashboard">
+	<ol>
+		<li th:each="hrefs : ${#lists.sort(hrefs)}">
+		<a target="_blank" th:text="${hrefs}" th:href="@{${hrefs}(env=dev2)}"></a>
+		</li>
+	</ol>
+</div>

@@ -1,0 +1,17 @@
+<tr th:each="dnAppsItems : ${dnAppsItems}">
+	<td>Deployment</td>
+	<td th:text="${dnAppsItems.name}"></td>
+	<td th:text="${dnAppsItems.state}"></td>
+	<td th:text="${dnAppsItems.health}"></td>
+</tr>
+<tr >
+ <td> Total Items at Wldeploy </td>
+ <td th:text="${dnContador}"></td>
+ <td> Total Items at Base Wldeploy</td>
+ <td th:text="${dnwldeploy}"></td>
+
+</tr>
+
+<tr>
+	<td th:text="${dnappDiff}"></td>
+</tr>

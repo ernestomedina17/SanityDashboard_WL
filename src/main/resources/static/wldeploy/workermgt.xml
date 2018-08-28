@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="wldeploy" basedir=".." default="usage">
+   <property environment="env"/>
+   <property name="ear.version" value="${env.ARTIFACTS_VERSION}"/>
+   <target name="deployAll" depends="KeepAlive4ServiesWar,RasInterfaceEar,CthHirInterfaceEar,SchedInterfaceEar,CthToolsInterfaceEar,iTracksInterfaceEar,iTracksReportClientInterfaceEar"/>
+   <target name="usage" description="default - display a list of targets">
+      <echo>Allowed targets: deployAll | deploy</echo>
+   </target>
+   <target name="KeepAlive4ServiesWar">
+	  <antcall target="deploy">
+	      <param name="appName" value="KeepAlive4ServiesWar"/>
+		  <param name="ear.filename" value="${env.APP_HOME}/artifacts/wars/keepalive-war-1.0.war"/>
+		  <param name="target" value="WorkerMgtRasCluster,WorkerMgtCthCluster,WorkerMgtSchedCluster"/>
+	   </antcall>
+   </target>
+   <target name="RasInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="RasInterface"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/ras-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="WorkerMgtRasCluster"/>
+      </antcall>
+   </target>
+   <target name="CthHirInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="CthHirInterface"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/cthhir-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="WorkerMgtCthCluster"/>
+      </antcall>
+   </target>
+   <target name="CthToolsInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="CthToolsInterface"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/cthtools-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="WorkerMgtCthCluster"/>
+      </antcall>
+   </target>
+   <target name="iTracksInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="iTracksInterface"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/itracks-ear-${ear.version}.ear"/>
+         <param name="target" value="WorkerMgtCthCluster"/>
+      </antcall>
+   </target>  
+   <target name="iTracksReportClientInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="iTracksReportClientInterface"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/itracks-report-client-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="WorkerMgtCthCluster"/>
+      </antcall>
+   </target> 
+   <target name="SchedInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="SchedInterface"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/sched-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="WorkerMgtSchedCluster"/>
+      </antcall>
+   </target>
+   <target name="deploy">
+      <echo message="deploying appName=${appName} from file=${ear.filename}"/>
+      <wldeploy action="deploy" verbose="true" debug="true" name="${appName}" source="${ear.filename}" user="${env.WL_USER}" password="${env.WL_PWD}" adminurl="${env.WL_ADMIN_SVR_URL}" targets="${target}"/>
+   </target>
+
+</project>

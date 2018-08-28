@@ -1,0 +1,6 @@
+<tr th:each="tnmgtServerItems : ${tnmgtServerItems}">
+	<td>Server</td>
+	<td th:text="${tnmgtServerItems.name}"></td>
+	<td th:text="${tnmgtServerItems.state}"></td>
+	<td th:text="${tnmgtServerItems.health}"></td>
+</tr>

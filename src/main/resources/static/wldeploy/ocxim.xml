@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="wldeploy" basedir=".." default="usage">
+   <property environment="env"/>
+   <property name="ear.version" value="${env.ARTIFACTS_VERSION}"/>
+   <property name="avos.version" value="9.2.1"/>
+   <taskdef name="wldeploy" classname="weblogic.ant.taskdefs.management.WLDeploy"/>
+   <target name="deployAll" depends="SppifInterfaceEar,BgwifInterfaceEar,CreateOrderEar,InquireOrderDataEar,AcsigcpInterfaceEar,AsocInterfaceEar,OcxuiEar,GcpsdInterfaceEar,CthInterfaceEar,GcpcsiInterfaceEar,CsiGridInterfaceEar,GiomInterfaceEar,LppInterfaceEar,OmxInterfaceEar,TnmgmtInterfaceEar,RasInterfaceEar,BismarcInterfaceEar,FocusInterfaceEar,CsinmInterfaceEar,TnomServicesEar,OcxcommonServicesEar,LsrvInterfaceEar,OmsInterfaceEar,RdsInterfaceEar,RvInterfaceEar,EdfInterfaceEar,CbusInterfaceEar,OvalsInterfaceEar,CrmInterfaceEar,FobpmifInterfaceEar,Keepalive,jms-notran-adp,jms-xa-adp"/>
+   <target name="usage" description="default - display a list of targets">
+      <echo>Allowed targets: deployAll | deploy</echo>
+   </target>
+   <target name="FobpmifInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="FobpmifInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/fobpmif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="SppifInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="SppifInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/sppif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+	   <target name="BgwifInterfaceEar">
+	      <antcall target="deploy">
+	         <param name="appName" value="BgwifInterfaceEar"/>
+	         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/bgwif-interface-ear-${ear.version}.ear"/>
+	         <param name="target" value="ocxInterfacesServicesCluster"/>
+	      </antcall>
+	   </target>
+	   <target name="CreateOrderEar">
+	      <antcall target="deploy">
+	         <param name="appName" value="CreateOrderEar"/>
+	         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/createorder-interface-ear-${ear.version}.ear"/>
+	         <param name="target" value="ocxInterfacesServicesCluster"/>
+	      </antcall>
+	   </target>
+	   <target name="InquireOrderDataEar">
+	      <antcall target="deploy">
+	         <param name="appName" value="InquireOrderDataEar"/>
+	         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/inquire-order-data-interface-ear-${ear.version}.ear"/>
+	         <param name="target" value="ocxInterfacesServicesCluster"/>
+	      </antcall>
+	   </target>
+   <target name="AcsigcpInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="AcsigcpInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/acsigcpif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+	   <target name="AsocInterfaceEar">
+		  <antcall target="deploy">
+			 <param name="appName" value="AsocInterfaceEar"/>
+			 <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/asocif-interface-ear-${ear.version}.ear"/>
+			 <param name="target" value="ocxInterfacesServicesCluster"/>
+		  </antcall>
+	   </target>   
+      <target name="OcxuiEar">
+      <antcall target="deploy">
+         <param name="appName" value="OcxuiEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/ocxui-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="GcpsdInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="GcpsdInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/gcpsdif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+      <target name="CthInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="CthInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/cthif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="GcpcsiInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="GcpcsiInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/gcpcsiif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="CsiGridInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="CsiGridInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/csigridif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="GiomInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="GiomInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/giomif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="LppInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="LppInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/lppif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="OmxInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="OmxInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/omxif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="TnmgmtInterfaceEar">
+	  <antcall target="deploy">
+		 <param name="appName" value="TnmgmtInterfaceEar"/>
+		 <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/tnmgmtif-interface-ear-${ear.version}.ear"/>
+		 <param name="target" value="ocxInterfacesServicesCluster"/>
+	  </antcall>
+   </target>
+   <target name="RasInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="RasInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/rasif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   
+    <target name="BismarcInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="BismarcInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/bismarcif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   
+   <target name="FocusInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="FocusInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/focusif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="CsinmInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="CsinmInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/csinmif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="LsrvInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="LsrvInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/lsrvif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="TnomServicesEar">
+      <antcall target="deploy">
+         <param name="appName" value="TnomServicesEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/tnomservices-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+      <target name="OcxcommonServicesEar">
+      <antcall target="deploy">
+         <param name="appName" value="OcxcommonServicesEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/ocx-common-services-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="OmsInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="OmsInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/omsif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   
+   <target name="RdsInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="RdsInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/rdsif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="RvInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="RvInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/rvif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="EdfInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="EdfInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/edfif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="CbusInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="CbusInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/cbusif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   
+   <target name="OvalsInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="OvalsInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/ovalsif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   
+   <target name="CrmInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="CrmInterfaceEar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/crmif-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   
+   <target name="Keepalive">
+      <antcall target="deploy">
+         <param name="appName" value="Keepalive"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/wars/keepalive-war-1.0.war"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="jms-notran-adp">
+      <antcall target="deploy">
+         <param name="appName" value="jms-notran-adp"/>
+         <param name="ear.filename" value="${env.WL_HOME}/server/lib/jms-notran-adp.rar"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="jms-xa-adp">
+      <antcall target="deploy">
+         <param name="appName" value="jms-xa-adp"/>
+         <param name="ear.filename" value="${env.WL_HOME}/server/lib/jms-xa-adp.rar"/>
+         <param name="target" value="ocxInterfacesServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="deploy">
+      <echo message="deploying appName=${appName} from file=${ear.filename}"/>
+      <wldeploy action="deploy" verbose="true" debug="true" name="${appName}" source="${ear.filename}" user="${env.WL_USER}" password="${env.WL_PWD}" adminurl="${env.WL_ADMIN_SVR_URL}" targets="${target}"/>
+   </target>
+</project>

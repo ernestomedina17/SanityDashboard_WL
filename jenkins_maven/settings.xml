@@ -1,0 +1,80 @@
+<settings>
+  <!-- 
+  If you prefer to relocate your local repository to somewhere other than ~.m2/repository
+  then uncomment the <localrepository/> tag below and specify your location.
+  <localRepository>c:/relocated/maven/repository</localRepository>
+  -->
+  <mirrors>
+<mirror>
+      <id>nexus</id>
+      <mirrorOf>*</mirrorOf>
+      <url>http://mavencentral.it.att.com:8084/nexus/content/groups/att-public-group/</url> 
+	  <!-- (This url is important as this is where all artifacts are downloaded from into the local repository) -->
+    </mirror>
+  </mirrors>
+  <profiles>
+    <profile>
+      <id>nexus</id>
+      <!-- Enable snapshots for the built in central repo to direct -->
+      <!-- all requests to nexus via the mirror -->
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases>
+            <enabled>true</enabled>
+            <!--
+            <updatePolicy>always</updatePolicy>
+            <updatePolicy>never</updatePolicy>
+            <updatePolicy>daily</updatePolicy>
+            <updatePolicy>interval:in minutes</updatePolicy>
+            -->
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+            <!--
+            <updatePolicy>always</updatePolicy>
+            <updatePolicy>never</updatePolicy>
+            <updatePolicy>daily</updatePolicy>
+            <updatePolicy>interval:30</updatePolicy>
+            -->
+         </snapshots>
+        </repository>
+      </repositories>
+<pluginRepositories>
+<pluginRepository>
+<id>central</id>
+<url>http://central</url>
+<releases>
+<enabled>true</enabled>
+<updatePolicy>never</updatePolicy>
+</releases>
+<snapshots>
+<enabled>true</enabled>
+<updatePolicy>always</updatePolicy>
+</snapshots>
+</pluginRepository>
+</pluginRepositories> 
+ </profile>
+  </profiles>
+  <activeProfiles>
+    <!-- make the profile active all the time -->
+    <activeProfile>nexus</activeProfile>
+  </activeProfiles>
+  
+  <pluginGroups>
+    <!-- define the sonatype plugin group, so the nexus plugins will work without typing the groupId-->
+  	<pluginGroup>org.sonatype.plugins</pluginGroup>
+  </pluginGroups>
+  <servers>
+   <server>
+     <id>nexus</id>  
+     <username>em1118</username> 
+	 <!-- (user id will be replaced with your att user id used to log into MavenCentral) -->
+     <password></password> 
+	 <!-- (Generating User Token is in Step 6) --> 
+      </server>
+  </servers>
+</settings>

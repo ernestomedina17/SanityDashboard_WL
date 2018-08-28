@@ -1,0 +1,6 @@
+<tr th:each="dnServerItems : ${dnServerItems}">
+	<td>Server</td>
+	<td th:text="${dnServerItems.name}"></td>
+	<td th:text="${dnServerItems.state}"></td>
+	<td th:text="${dnServerItems.health}"></td>
+</tr>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="wldeploy" basedir=".." default="usage">
+   <property environment="env"/>
+   <property name="ear.version" value="${env.ARTIFACTS_VERSION}"/>
+   <property name="avos.version" value="9.2.1"/>
+   <target name="deployAll" depends="KeepAlive4ServiesWar,LogAggregationEar,TnDomainAdapterEar,TnServicesEar,TnUiEar,VoicetoneInterfaceEar,CthInterfaceEar,R3InterfaceEar,DNInterfaceEar,GcpInterfaceEar,BoostEar,TnWebToolEar,TnReservationInterfaceEar,NutInterfaceEar,AsocEar,R3NicheEar"/>
+   <target name="usage" description="default - display a list of targets">
+      <echo>Allowed targets: deployAll | deploy</echo>
+   </target>
+   <target name="KeepAlive4ServiesWar">
+      <antcall target="deploy">
+         <param name="appName" value="KeepAlive4ServiesWar"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/wars/keepalive-war-1.0.war"/>
+         <param name="target" value="TnMgmntServicesCluster"/>
+      </antcall>
+   </target>
+	<target name="LogAggregationEar">
+		<antcall target="deploy">
+			<param name="appName" value="LogAggregation" />
+			<param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/common-log-aggregation-ear-2.0-SNAPSHOT.ear" />
+			<param name="target" value="TnMgmntServicesCluster" />
+		</antcall>
+	</target>	   
+   <target name="PedCSSngServiceWar">
+      <antcall target="deploy">
+         <param name="appName" value="PedWebService"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/wars/escore-cssws-${ear.version}.war"/>
+         <param name="target" value="TnMgmntServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="TnDomainAdapterEar">
+      <antcall target="deploy">
+         <param name="appName" value="TnDomainAdapter"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/tndomainadapter-ear-${ear.version}.ear"/>
+         <param name="target" value="TnMgmntServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="TnServicesEar">
+      <antcall target="deploy">
+         <param name="appName" value="TnServices"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/tnservices-ear-${ear.version}.ear"/>
+         <param name="target" value="TnMgmntServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="TnUiEar">
+      <antcall target="deploy">
+         <param name="appName" value="TnUi"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/tnui-ear-${ear.version}.ear"/>
+         <param name="target" value="TnMgmntServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="VoicetoneInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="VoicetoneInterface"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/voicetone-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="TnMgmntServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="CthInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="CthInterface"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/cthinterface-ear-${ear.version}.ear"/>
+         <param name="target" value="TnMgmntServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="R3InterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="R3Interface"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/r3-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="TnMgmntServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="DNInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="DNInterface"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/dn-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="TnMgmntServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="GcpInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="GcpInterface"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/gcpinterface-ear-${ear.version}.ear"/>
+         <param name="target" value="TnMgmntServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="BoostEar">
+      <antcall target="deploy">
+         <param name="appName" value="BoostInterface"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/boost-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="TnMgmntServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="TnWebToolEar">
+      <antcall target="deploy">
+         <param name="appName" value="TnWebToolInterface"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/tnwebtool-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="TnMgmntServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="TnReservationInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="TnReservationInterface"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/tnreservationinterface-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="TnMgmntServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="NutInterfaceEar">
+      <antcall target="deploy">
+         <param name="appName" value="NutInterface"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/nutinterface-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="TnMgmntServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="AsocEar">
+      <antcall target="deploy">
+         <param name="appName" value="Asoc"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/asoc-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="TnMgmntServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="R3NicheEar">
+      <antcall target="deploy">
+         <param name="appName" value="R3NicheInterface"/>
+         <param name="ear.filename" value="${env.APP_HOME}/artifacts/ears/r3niche-interface-ear-${ear.version}.ear"/>
+         <param name="target" value="TnMgmntServicesCluster"/>
+      </antcall>
+   </target>
+   <target name="deploy">
+      <echo message="deploying appName=${appName} from file=${ear.filename}"/>
+      <wldeploy action="deploy" verbose="true" debug="true" name="${appName}" source="${ear.filename}" user="${env.WL_USER}" password="${env.WL_PWD}" adminurl="${env.WL_ADMIN_SVR_URL}" targets="${target}"/>
+   </target>
+</project>

@@ -1,0 +1,16 @@
+<tr th:each="ocximAppsItems : ${ocximAppsItems}">
+	<td>Deployment</td>
+	<td th:text="${ocximAppsItems.name}"></td>
+	<td th:text="${ocximAppsItems.state}"></td>
+	<td th:text="${ocximAppsItems.health}"></td>
+</tr>
+<tr >
+ <td> Total Items at Wldeploy </td>
+ <td th:text="${ocximContador}"></td>
+ <td> Total Items at Base Wldeploy</td>
+ <td th:text="${ocximwldeploy}"></td>
+</tr>
+
+<tr>
+	<td th:text="${ocximappDiff}"></td>
+</tr>

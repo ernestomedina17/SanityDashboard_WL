@@ -1,0 +1,6 @@
+<tr th:each="ocximServerItems : ${ocximServerItems}">
+	<td>Server</td>
+	<td th:text="${ocximServerItems.name}"></td>
+	<td th:text="${ocximServerItems.state}"></td>
+	<td th:text="${ocximServerItems.health}"></td>
+</tr>

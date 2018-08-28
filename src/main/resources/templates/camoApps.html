@@ -1,0 +1,17 @@
+<tr th:each="camoAppsItems : ${camoAppsItems}">
+	<td>Deployment</td>
+	<td th:text="${camoAppsItems.name}"></td>
+	<td th:text="${camoAppsItems.state}"></td>
+	<td th:text="${camoAppsItems.health}"></td>
+</tr>
+
+<tr>
+	<td>Total Items at Wldeploy</td>
+	<td th:text="${camoContador}"></td>
+	<td>Total Items at Base Wldeploy</td>
+	<td th:text="${camowldeploy}"></td>
+</tr>
+
+<tr>
+	<td th:text="${camoappDiff}"></td>
+</tr>
